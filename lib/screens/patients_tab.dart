@@ -1,15 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:medzone/utils/colors.dart';
 import 'package:medzone/widgets/button_widget.dart';
 import 'package:medzone/widgets/text_widget.dart';
 
-class AppointmentsTab extends StatelessWidget {
-  const AppointmentsTab({super.key});
+class PatientsTab extends StatelessWidget {
+  const PatientsTab({super.key});
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: primary,
+          child: const Icon(
+            Icons.add,
+            color: Colors.white,
+          ),
+          onPressed: () {},
+        ),
         body: SafeArea(
             child: Padding(
           padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
@@ -20,7 +29,7 @@ class AppointmentsTab extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     TextWidget(
-                      text: 'Appointments',
+                      text: 'Patients',
                       fontSize: 24,
                       fontFamily: 'Bold',
                     ),
@@ -32,13 +41,10 @@ class AppointmentsTab extends StatelessWidget {
                 const TabBar(
                   tabs: [
                     Tab(
-                      text: 'Upcoming',
+                      text: 'Not Assigned',
                     ),
                     Tab(
-                      text: 'Completed',
-                    ),
-                    Tab(
-                      text: 'Cancelled',
+                      text: 'Assigned',
                     ),
                   ],
                 ),
@@ -49,7 +55,7 @@ class AppointmentsTab extends StatelessWidget {
                   height: 500,
                   child: TabBarView(
                     children: [
-                      for (int i = 0; i < 3; i++)
+                      for (int i = 0; i < 2; i++)
                         ListView.builder(
                           itemBuilder: (context, index) {
                             return Card(
@@ -108,7 +114,7 @@ class AppointmentsTab extends StatelessWidget {
                                                     width: 75,
                                                     height: 30,
                                                     fontSize: 12,
-                                                    label: 'Accept',
+                                                    label: 'Assign',
                                                     onPressed: () {},
                                                   ),
                                                   const SizedBox(
@@ -120,7 +126,7 @@ class AppointmentsTab extends StatelessWidget {
                                                     width: 75,
                                                     height: 30,
                                                     fontSize: 12,
-                                                    label: 'Reject',
+                                                    label: 'Delete',
                                                     onPressed: () {},
                                                   ),
                                                 ],

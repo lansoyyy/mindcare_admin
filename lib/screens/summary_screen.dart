@@ -221,9 +221,9 @@ class _SummaryScreenState extends State<SummaryScreen> {
                     radius: 100,
                     label: 'Confirm',
                     onPressed: () {
-                      showToast('You have successfully booked a consultation!');
-                      Navigator.of(context).pushReplacement(MaterialPageRoute(
-                          builder: (context) => const HomeTab()));
+                      // showToast('You have successfully booked a consultation!');
+                      // Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      //     builder: (context) => const HomeTab()));
                     },
                   ),
                 ),

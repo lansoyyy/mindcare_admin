@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:medzone/screens/auth/signup_screen.dart';
+import 'package:medzone/utils/colors.dart';
 
 import 'package:medzone/widgets/text_widget.dart';
 
-class MessagesTab extends StatefulWidget {
-  const MessagesTab({super.key});
+class NurseTab extends StatefulWidget {
+  const NurseTab({super.key});
 
   @override
-  State<MessagesTab> createState() => _MessagesTabState();
+  State<NurseTab> createState() => _NurseTabState();
 }
 
-class _MessagesTabState extends State<MessagesTab> {
+class _NurseTabState extends State<NurseTab> {
   final messageController = TextEditingController();
 
   String filter = '';
@@ -17,6 +19,17 @@ class _MessagesTabState extends State<MessagesTab> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: primary,
+        child: const Icon(
+          Icons.add,
+          color: Colors.white,
+        ),
+        onPressed: () {
+          Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => const SignupScreen()));
+        },
+      ),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
         child: SafeArea(
@@ -26,7 +39,7 @@ class _MessagesTabState extends State<MessagesTab> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   TextWidget(
-                    text: 'Message',
+                    text: 'Nurse',
                     fontSize: 24,
                     fontFamily: 'Bold',
                   ),
@@ -75,12 +88,12 @@ class _MessagesTabState extends State<MessagesTab> {
                                     fontSize: 15,
                                     fontFamily: 'Bold',
                                     color: Colors.black),
-                                Row(
+                                const Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    const Text(
-                                      'Message here',
+                                    Text(
+                                      '2 patients',
                                       maxLines: 1,
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
@@ -89,10 +102,6 @@ class _MessagesTabState extends State<MessagesTab> {
                                           color: Colors.black,
                                           fontFamily: 'QBold'),
                                     ),
-                                    TextWidget(
-                                        text: '11/23/2023',
-                                        fontSize: 12,
-                                        color: Colors.black),
                                   ],
                                 ),
                               ],

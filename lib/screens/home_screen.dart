@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:medzone/screens/appointments_tab.dart';
-import 'package:medzone/screens/messages_tab.dart';
+import 'package:medzone/screens/home_tab.dart';
+import 'package:medzone/screens/patients_tab.dart';
+import 'package:medzone/screens/nurse_tab.dart';
 import 'package:medzone/screens/mypatients_tab.dart';
 import 'package:medzone/screens/profile_tab.dart';
 
@@ -21,9 +22,9 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   final List<Widget> children = [
-    const AppointmentsTab(),
-    const MyPatients(),
-    const MessagesTab(),
+    const DashboardTab(),
+    const PatientsTab(),
+    const NurseTab(),
     const ProfileTab(),
   ];
 
@@ -40,10 +41,10 @@ class _HomeScreenState extends State<HomeScreen> {
         currentIndex: currentIndex,
         items: const [
           BottomNavigationBarItem(
-              icon: Icon(Icons.calendar_month), label: 'Appointments'),
+              icon: Icon(Icons.dashboard), label: 'Dashboard'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Patients'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.person), label: 'My Patients'),
-          BottomNavigationBarItem(icon: Icon(Icons.chat), label: 'Message'),
+              icon: Icon(Icons.medical_services_sharp), label: 'Nurse'),
           BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Profile'),
         ],
       ),
